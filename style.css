@@ -3,37 +3,67 @@
 * {
   margin: 0;
   padding: 0;
-}
-
-header {
-  height: 4vw;
-  padding: 0.5vw;
-  width: 100%;
-  box-shadow: 0 0 1vw 0 rgba(0,0,0,0.3);
-  box-sizing: border-box;
-  display: inline-grid;
-  grid-template-columns: 3vw auto auto;
-  grid-column-gap: 0.5vw;
-}
-
-header img {
-  height: 100%;
-}
-
-header #img-icon {
-  border-radius: 0.7vw;
-}
-
-header #img-dl {
-  justify-self: end;
-  padding: 10px;
-  box-sizing: border-box;
-  cursor: pointer;
-}
-
-header h1 {
-  align-self: center;
   font-family: 'Montserrat', sans-serif;
-  font-size: 2.2vw;
-  color: #666;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #6EB1FF;
+  color: white;
+}
+
+header  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+header div {
+  margin-bottom: 2vw;
+}
+
+header div h1 {
+  font-size: calc(30px + 2vw);
+  margin-top: 5vw;
+  text-align: center;
+  margin-bottom: 2vw;
+}
+
+header div p {
+  font-size: calc(10px + 0.7vw);
+  width: calc(150px + 20vw);
+  display: block;
+  box-sizing: border-box;
+  margin: auto;
+  text-align: center;
+}
+
+#img-logo {
+  width: 20vw;
+  display: block;
+  margin: auto;
+}
+
+#img-dl-icon {
+  position: absolute;
+  width: calc(30px + 1vw);
+  bottom: calc(20px + 0.7vw);
+  right: calc(15px + 0.7vw);
+  cursor: pointer;
+  transition-duration: 0.6s;
+}
+
+#img-dl-icon:hover {
+  transform: scale(1.1);
+  transition-duration: 0.3s;
+}
+
+article {
+  margin: 0 20vw 0 20vw;
+  height: 100vh;
+}
+
+article h2 {
+  padding-top: 5vw;
 }
