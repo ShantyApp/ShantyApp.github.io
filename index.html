@@ -19,8 +19,13 @@
               var release = json[0];
               var downloadURL = release.assets[0].browser_download_url;
               var versionName = release.assets[0].name;
+              var downloadCount = 0;
+              for (const asset of release.assets) {
+                downloadCount += asset.download_count;
+              }
               $("#download-link").attr("href", downloadURL);
               document.getElementById("download-link").innerHTML = versionName;
+              document.getElementById("download_counter").innerHTML = "Installations: " + downloadCount;
          });
       }
 
@@ -40,11 +45,12 @@
     <article id="downloads">
       <h2>Downloads</h2>
       <a id='download-link' href="">Latest Release</a>
-      <p>
+      <p id="warnings">
         Please note that Shanty currently is in a pre release state. Expect minor problems.<br>
         Due to our app beeing not located in the official Playstore, Google/Android will tell you that this app could be harmfull. Installing Shanty will have no bad effect on your devices.<br>
         In addition to that, you probably have to accept installations from unknown sources if you havent already.
       </p>
+      <p id="download_counter"></p>
     </article>
   <body>
 </html>
