@@ -15,10 +15,10 @@
 
 
       function getLatestReleaseInfo() {
-         $.getJSON("https://api.github.com/repos/shantyapp/project/tags").done(function (json) {
+         $.getJSON("https://api.github.com/repos/shantyapp/project/releases").done(function (json) {
               var release = json[0];
-              var downloadURL = release.zipball_url;
-              var versionName = "Download Shanty " + release.name;
+              var downloadURL = release.assets[0].browser_download_url;
+              var versionName = release.assets[0].name;
               $("#download-link").attr("href", downloadURL);
               document.getElementById("download-link").innerHTML = versionName;
          });
