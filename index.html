@@ -13,15 +13,14 @@
            getLatestReleaseInfo();
       });
 
-
       function getLatestReleaseInfo() {
          $.getJSON("https://api.github.com/repos/shantyapp/project/releases").done(function (json) {
-              var release = json[0];
-              var downloadURL = release.assets[0].browser_download_url;
-              var versionName = release.assets[0].name;
+           console.log(json);
+              var downloadURL = json[0].assets[0].browser_download_url;
+              var versionName = json[0].assets[0].name;
               var downloadCount = 0;
-              for (const asset of release.assets) {
-                downloadCount += asset.download_count;
+              for (const release of json) {
+                downloadCount += release.assets[0].download_count;
               }
               $("#download-link").attr("href", downloadURL);
               document.getElementById("download-link").innerHTML = versionName;
